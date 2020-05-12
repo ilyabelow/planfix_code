@@ -1,0 +1,402 @@
+INFO (<module>) 19:46:08
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> id = 1375054
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (get_request) >> number = 64561
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> author_name = Белов Илья
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7478972
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 19:50<br/>Материал : <br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> author = 137328
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Остаток': None, 'name': 'Материалы для печати', 'Сотрудник': 'Илья Белов', 'Материал': None, 'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'Остаток входящий': None, 'Количество': '1', 'Баланс': 'Расход', 'Дата': '24-08-2018 19:50'}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+CRITICAL (make_request) An error occured while making request, code:3001
+NoneType: None
+CRITICAL (<module>) Something went wrong!
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 345, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 844, in _validate_conn
+    conn.connect()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connection.py", line 326, in connect
+    ssl_context=context)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\util\ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 385, in wrap_socket
+    _context=self)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 760, in __init__
+    self.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 996, in do_handshake
+    self._sslobj.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 641, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 423, in send
+    timeout=timeout
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 630, in urlopen
+    raise SSLError(e)
+requests.packages.urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 219, in <module>
+    materials_workout(analy)
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 177, in materials_workout
+    task = task_get(task_id)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 84, in task_get
+    .format('{0}', account, task_id, number))
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 38, in make_request
+    "An error occured while making request, code:" + soup.response.code.string, exc_info=True)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1327, in critical
+    self._log(CRITICAL, msg, args, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1416, in _log
+    self.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1426, in handle
+    self.callHandlers(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1488, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 856, in handle
+    self.emit(record)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 397, in emit
+    "sendMessage?chat_id=505604081&text={0}".format(self.format(record)))
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 497, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+INFO (<module>) 19:48:55
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> id = 1375054
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> author = 137328
+INFO (get_request) >> number = 64561
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7478954
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 19:40<br/>Материал : Смывка<br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> author_name = Белов Илья
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Материал': 'Смывка', 'Сотрудник': 'Илья Белов', 'Баланс': 'Расход', 'name': 'Материалы для печати', 'Остаток': None, 'Количество': '1', 'Остаток входящий': None, 'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'Дата': '24-08-2018 19:40'}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+INFO (materials_workout) Old value is 1
+INFO (materials_workout) New value is 2
+CRITICAL (make_request) An error occured while making request, code:4016
+NoneType: None
+CRITICAL (<module>) Something went wrong!
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 345, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 844, in _validate_conn
+    conn.connect()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connection.py", line 326, in connect
+    ssl_context=context)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\util\ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 385, in wrap_socket
+    _context=self)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 760, in __init__
+    self.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 996, in do_handshake
+    self._sslobj.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 641, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 423, in send
+    timeout=timeout
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 630, in urlopen
+    raise SSLError(e)
+requests.packages.urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 222, in <module>
+    materials_workout(analy)
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 205, in materials_workout
+    action_update(act, ans={"id": 1872, "items": [(12362, final), (12360, leftover_s)], "key": an_key})
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 187, in action_update
+    return make_request(request)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 38, in make_request
+    "An error occured while making request, code:" + soup.response.code.string, exc_info=True)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1327, in critical
+    self._log(CRITICAL, msg, args, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1416, in _log
+    self.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1426, in handle
+    self.callHandlers(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1488, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 856, in handle
+    self.emit(record)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 397, in emit
+    "sendMessage?chat_id=505604081&text={0}".format(self.format(record)))
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 497, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+INFO (<module>) 19:49:07
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> id = 1375054
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 19:50<br/>Материал : <br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (get_request) >> author_name = Белов Илья
+INFO (get_request) >> author = 137328
+INFO (get_request) >> number = 64561
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7478972
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Баланс': 'Расход', 'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'Дата': '24-08-2018 19:50', 'Остаток': None, 'name': 'Материалы для печати', 'Материал': None, 'Остаток входящий': None, 'Сотрудник': 'Илья Белов', 'Количество': '1'}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+INFO (materials_workout) Material not stated, skipping
+INFO (<module>) 19:49:24
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7479032
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (get_request) >> id = 1375054
+INFO (get_request) >> number = 64561
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 19:50<br/>Материал : Смывка<br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> author = 137328
+INFO (get_request) >> author_name = Белов Илья
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Баланс': 'Расход', 'Материал': 'Смывка', 'Количество': '1', 'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'Дата': '24-08-2018 19:50', 'Сотрудник': 'Илья Белов', 'Остаток': None, 'name': 'Материалы для печати', 'Остаток входящий': None}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+INFO (materials_workout) Old value is 2
+INFO (materials_workout) New value is 3
+CRITICAL (make_request) An error occured while making request, code:4016
+NoneType: None
+CRITICAL (<module>) Something went wrong!
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 345, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 844, in _validate_conn
+    conn.connect()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connection.py", line 326, in connect
+    ssl_context=context)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\util\ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 385, in wrap_socket
+    _context=self)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 760, in __init__
+    self.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 996, in do_handshake
+    self._sslobj.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 641, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 423, in send
+    timeout=timeout
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 630, in urlopen
+    raise SSLError(e)
+requests.packages.urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 222, in <module>
+    materials_workout(analy)
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 205, in materials_workout
+    action_update(act, ans={"id": 1872, "items": [(12362, final), (12360, leftover_s)], "key": an_key})
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 187, in action_update
+    return make_request(request)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 38, in make_request
+    "An error occured while making request, code:" + soup.response.code.string, exc_info=True)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1327, in critical
+    self._log(CRITICAL, msg, args, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1416, in _log
+    self.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1426, in handle
+    self.callHandlers(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1488, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 856, in handle
+    self.emit(record)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 397, in emit
+    "sendMessage?chat_id=505604081&text={0}".format(self.format(record)))
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 497, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+INFO (<module>) 21:27:05
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> author = 137328
+INFO (get_request) >> id = 1375054
+INFO (get_request) >> author_name = Белов Илья
+INFO (get_request) >> number = 64561
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7479190
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 21:30<br/>Материал : Смывка<br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Баланс': 'Расход', 'Материал': 'Смывка', 'Дата': '24-08-2018 21:30', 'Остаток входящий': None, 'Количество': '1', 'name': 'Материалы для печати', 'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'Сотрудник': 'Илья Белов', 'Остаток': None}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+INFO (materials_workout) Old value is 3
+INFO (materials_workout) New value is 4
+CRITICAL (make_request) An error occured while making request, code:4016
+NoneType: None
+CRITICAL (<module>) Something went wrong!
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 345, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 844, in _validate_conn
+    conn.connect()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connection.py", line 326, in connect
+    ssl_context=context)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\util\ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 385, in wrap_socket
+    _context=self)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 760, in __init__
+    self.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 996, in do_handshake
+    self._sslobj.do_handshake()
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\ssl.py", line 641, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 423, in send
+    timeout=timeout
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 630, in urlopen
+    raise SSLError(e)
+requests.packages.urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 222, in <module>
+    materials_workout(analy)
+  File "G:/Web/OpenServer/domains/seven/task_analytics.py", line 205, in materials_workout
+    action_update(act, ans={"id": 1872, "items": [(12362, final), (12360, leftover_s)], "key": an_key})
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 187, in action_update
+    return make_request(request)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 38, in make_request
+    "An error occured while making request, code:" + soup.response.code.string, exc_info=True)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1327, in critical
+    self._log(CRITICAL, msg, args, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1416, in _log
+    self.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1426, in handle
+    self.callHandlers(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 1488, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\logging\__init__.py", line 856, in handle
+    self.emit(record)
+  File "G:\Web\OpenServer\domains\seven\interface.py", line 397, in emit
+    "sendMessage?chat_id=505604081&text={0}".format(self.format(record)))
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\prinect\AppData\Local\Programs\Python\Python35\lib\site-packages\requests\adapters.py", line 497, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:720)
+INFO (<module>) 21:30:49
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> number = 64561
+INFO (get_request) >> author_name = Белов Илья
+INFO (get_request) >> author = 137328
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 21:35<br/>Материал : Смывка<br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7479200
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (get_request) >> id = 1375054
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Баланс': 'Расход', 'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'Материал': 'Смывка', 'Остаток': None, 'name': 'Материалы для печати', 'Дата': '24-08-2018 21:35', 'Остаток входящий': None, 'Сотрудник': 'Илья Белов', 'Количество': '1'}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+INFO (materials_workout) Old value is 4
+INFO (materials_workout) New value is 3
+INFO (<module>) 21:33:24
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> author_name = Белов Илья
+INFO (get_request) >> author = 137328
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (get_request) >> number = 64561
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 21:35<br/>Материал : Смывка<br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> id = 1375054
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7479200
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Баланс': 'Расход', 'Количество': '1', 'Дата': '24-08-2018 21:35', 'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'Остаток': None, 'Материал': 'Смывка', 'Сотрудник': 'Илья Белов', 'Остаток входящий': None, 'name': 'Материалы для печати'}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+INFO (materials_workout) Old value is 3
+INFO (materials_workout) New value is 2
+INFO (materials_workout) 7479200
+INFO (<module>) 21:35:26
+INFO (<module>) ========== TASK ANALYTICS REQUEST
+INFO (get_request) Incoming request:
+INFO (get_request) >> author_name = Белов Илья
+INFO (get_request) >> number = 64561
+INFO (get_request) >> analytics = <b>Материалы для печати</b><br/>Дата : 24-08-2018 21:35<br/>Материал : Смывка<br/>Баланс : Расход<br/>Количество : 1<br/>Заказ : 131072  кубарик ТЕСТИРОВАНИЕ<br/>Остаток входящий : <br/>Остаток : <br/>Сотрудник : Илья Белов<br/><br/>
+INFO (get_request) >> id = 1375054
+INFO (get_request) >> machine = PM-52
+INFO (get_request) >> printing_time = 2*0ч21м Всего: 51
+INFO (get_request) >> name = 131072  кубарик ТЕСТИРОВАНИЕ
+INFO (get_request) >> action_link = https://7-print.planfix.ru/task/64561/?comment=7479200
+INFO (get_request) >> author = 137328
+INFO (parse_analytics) Analytics dict:
+INFO (parse_analytics) {'Заказ': '131072  кубарик ТЕСТИРОВАНИЕ', 'name': 'Материалы для печати', 'Баланс': 'Расход', 'Сотрудник': 'Илья Белов', 'Дата': '24-08-2018 21:35', 'Материал': 'Смывка', 'Остаток входящий': None, 'Количество': '1', 'Остаток': None}
+INFO (<module>) @@@@@@@@ MATERIALS WORKOUT
+INFO (materials_workout) Old value is 2
+INFO (materials_workout) New value is 1

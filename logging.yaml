@@ -1,0 +1,33 @@
+version: 1
+formatters:
+  simple:
+    format: '%(message)s'
+  full:
+    format: '%(levelname)s (%(funcName)s) %(message)s'
+  err:
+    format: '%(message)s (%(funcName)s)'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: DEBUG
+    formatter: full
+    when: midnight
+    backupCount: 7
+    filename: log
+    encoding: UTF-8
+  telegram:
+    (): interface.get_handler
+    level: ERROR
+    formatter: err
+loggers:
+  root:
+    # level: DEBUG
+    level: INFO
+    # handlers: [console, file, telegram]
+    #vhandlers: [file, telegram]
+    handlers: [file]
